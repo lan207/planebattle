@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://brnksvx0petvk"]
+
+[ext_resource type="Texture2D" uid="uid://t4m5l2o7ia1g" path="res://icon.svg" id="1_rkjqc"]
+[ext_resource type="Script" path="res://new_script.cs" id="2_1ogct"]
+[ext_resource type="PackedScene" uid="uid://c6jw7g7pjcrmq" path="res://b_ullet.tscn" id="3_vhdbl"]
+[ext_resource type="PackedScene" uid="uid://qx1xbe4ntjn0" path="res://bomb.tscn" id="4_32e7g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mgsk"]
+size = Vector2(128, 128)
+
+[node name="P" type="Sprite2D"]
+position = Vector2(536, 566)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_rkjqc")
+script = ExtResource("2_1ogct")
+BulletPrefab = ExtResource("3_vhdbl")
+BombPrefab = ExtResource("4_32e7g")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="PlayerArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
+shape = SubResource("RectangleShape2D_5mgsk")

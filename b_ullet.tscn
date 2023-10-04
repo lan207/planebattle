@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6jw7g7pjcrmq"]
+
+[ext_resource type="Texture2D" uid="uid://t4m5l2o7ia1g" path="res://icon.svg" id="1_0haue"]
+[ext_resource type="Script" path="res://BULLET.cs" id="2_dtp22"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5xrv"]
+size = Vector2(140, 127)
+
+[node name="BUllet" type="Sprite2D" node_paths=PackedStringArray("DelayTimer")]
+position = Vector2(552, 428)
+scale = Vector2(0.1, 1)
+texture = ExtResource("1_0haue")
+script = ExtResource("2_dtp22")
+DelayTimer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.2
+one_shot = true
+autostart = true
+
+[node name="BulletArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletArea"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_h5xrv")

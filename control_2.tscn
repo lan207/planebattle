@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtxd64702nf1p"]
+
+[ext_resource type="Script" path="res://StateChangeSelect.cs" id="1_4bnwv"]
+
+[sub_resource type="SystemFont" id="SystemFont_d0hqx"]
+
+[node name="Control2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4bnwv")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 98.0
+offset_right = 955.0
+offset_bottom = 255.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_d0hqx")
+theme_override_font_sizes/font_size = 100
+button_mask = 7
+text = "常规模式"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 267.0
+offset_right = 956.0
+offset_bottom = 424.0
+theme_override_colors/font_color = Color(0, 0, 0.992157, 1)
+theme_override_fonts/font = SubResource("SystemFont_d0hqx")
+theme_override_font_sizes/font_size = 100
+button_mask = 7
+text = "BOSS战"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 449.0
+offset_right = 955.0
+offset_bottom = 606.0
+theme_override_colors/font_color = Color(0.976471, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_d0hqx")
+theme_override_font_sizes/font_size = 100
+button_mask = 7
+text = "地狱模式"

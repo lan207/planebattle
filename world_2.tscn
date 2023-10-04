@@ -1,0 +1,242 @@
+[gd_scene load_steps=15 format=3 uid="uid://dgwr64w8ecpec"]
+
+[ext_resource type="Script" path="res://Game4.cs" id="1_8hsdq"]
+[ext_resource type="PackedScene" uid="uid://brnksvx0petvk" path="res://p.tscn" id="1_dvnfi"]
+[ext_resource type="PackedScene" uid="uid://c2nub6t5qbpr4" path="res://boss.tscn" id="2_7i5fv"]
+[ext_resource type="Texture2D" uid="uid://t4m5l2o7ia1g" path="res://icon.svg" id="2_lc0r2"]
+[ext_resource type="FontFile" uid="uid://cp38ejjfroeao" path="res://AaJianHaoTi.ttf" id="3_8d4b5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lqkm4"]
+line_spacing = 1.0
+font_size = 50
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_3ut0y"]
+
+[sub_resource type="Animation" id="Animation_dgj7g"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Node2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Node2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_5tlfn"]
+resource_name = "new_animation"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Node2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Node2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 650, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_j726x"]
+resource_name = "new_animation_2"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Node2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Node2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(650, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gu5eu"]
+_data = {
+"RESET": SubResource("Animation_dgj7g"),
+"new_animation": SubResource("Animation_5tlfn"),
+"new_animation_2": SubResource("Animation_j726x")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_dgwpi"]
+font_size = 100
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Curve2D" id="Curve2D_s5a16"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 100, 50, 0, 0, 0, 0, 1003, 53, 0, 0, 0, 0, 100, 50)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_vn80f"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 104, 103, 0, 0, 0, 0, 974, 239, 0, 0, 0, 0, 978, 99, 0, 0, 0, 0, 100, 235, 0, 0, 0, 0, 104, 103)
+}
+point_count = 5
+
+[node name="World2" type="Node2D" node_paths=PackedStringArray("text", "textL", "timeT", "res", "btn1", "btn2", "p", "player")]
+script = ExtResource("1_8hsdq")
+text = NodePath("CanvasLayer/Label")
+textL = NodePath("CanvasLayer/Label2")
+timeT = NodePath("CanvasLayer/AnimationPlayer/Node2D/Label")
+res = NodePath("CanvasLayer/AnimationPlayer/Node2D/Label2")
+btn1 = NodePath("CanvasLayer/Button")
+btn2 = NodePath("CanvasLayer/Button2")
+p = NodePath("CanvasLayer/AnimationPlayer")
+player = NodePath("P")
+Boss = ExtResource("2_7i5fv")
+
+[node name="P" parent="." instance=ExtResource("1_dvnfi")]
+position = Vector2(509, 562)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -246.0
+offset_top = -118.0
+offset_right = 247.0
+offset_bottom = 119.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "666"
+label_settings = SubResource("LabelSettings_lqkm4")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -570.0
+offset_top = 84.0
+offset_right = -77.0
+offset_bottom = 321.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "666"
+label_settings = SubResource("LabelSettings_lqkm4")
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 934.0
+offset_top = 198.0
+offset_right = 1152.0
+offset_bottom = 269.0
+theme_override_fonts/font = SubResource("SystemFont_3ut0y")
+theme_override_font_sizes/font_size = 30
+text = "返回"
+
+[node name="Button2" type="Button" parent="CanvasLayer"]
+offset_left = 936.0
+offset_top = 289.0
+offset_right = 1154.0
+offset_bottom = 360.0
+theme_override_fonts/font = SubResource("SystemFont_3ut0y")
+theme_override_font_sizes/font_size = 30
+text = "重开
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_gu5eu")
+}
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer/AnimationPlayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/AnimationPlayer/Node2D"]
+position = Vector2(552, -350)
+scale = Vector2(6, 5)
+texture = ExtResource("2_lc0r2")
+
+[node name="Label" type="Label" parent="CanvasLayer/AnimationPlayer/Node2D"]
+offset_left = 158.0
+offset_top = -546.0
+offset_right = 936.0
+offset_bottom = -390.0
+text = "100昏
+"
+label_settings = SubResource("LabelSettings_dgwpi")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="CanvasLayer/AnimationPlayer/Node2D"]
+offset_left = 154.0
+offset_top = -402.0
+offset_right = 932.0
+offset_bottom = -246.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 20
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_8d4b5")
+theme_override_font_sizes/font_size = 300
+text = "满昏
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Path2D2" type="Path2D" parent="."]
+curve = SubResource("Curve2D_s5a16")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
+position = Vector2(100, 50)
+rotation = 0.00332225
+
+[node name="Path2D3" type="Path2D" parent="."]
+curve = SubResource("Curve2D_vn80f")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
+position = Vector2(104, 103)
+rotation = 0.155067
+
+[node name="Boss" parent="." instance=ExtResource("2_7i5fv")]
+position = Vector2(541, 98)
